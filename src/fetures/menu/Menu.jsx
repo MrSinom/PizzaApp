@@ -1,7 +1,8 @@
+import MenuItem from './MenuItem'
 import { useLoaderData } from 'react-router-dom';
 import {getMenu} from '../../services/apiRestaurant'
 
-import {MenuItem} from './MenuItem'
+
 
 function Menu() {
  const menu = useLoaderData()
@@ -13,7 +14,7 @@ function Menu() {
         <MenuItem pizza={pizza} key={pizza.id}/>
       ))}
     </ul>
-  )
+  );
 }
 
 

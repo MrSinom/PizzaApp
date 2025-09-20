@@ -4,10 +4,13 @@ import Home from './UI/Home'
 import Menu, {loader as menuLoader} from './fetures/menu/Menu'
 import Cart from './fetures/cart/Cart'
 import CreateOrder from "./fetures/order/CreateOrder";
-import Order from './fetures/order/CreateOrder'
+import Order,{loader as orderLoader}  from "./fetures/order/Order"
 import AppLayout from "./UI/AppLayout";
+import Error from './UI/Error'
+
 const router = createBrowserRouter([{
   element:<AppLayout/>,
+  errorElement: <Error/>,
   children: [
       {
     path:'/',
@@ -16,7 +19,8 @@ const router = createBrowserRouter([{
   {
     path:'/menu',
     element: <Menu />,
-    loader: menuLoader,
+     errorElement: <Error/>,
+      loader: menuLoader,
   },
   {
     path: '/cart',
@@ -28,7 +32,9 @@ const router = createBrowserRouter([{
   },
   {
     path: '/order/orderId',
-    element: <Order/>
+    element: <Order/>,
+    loader: orderLoader,
+    errorElement: <Error/>,
   }
   ]
 }])
